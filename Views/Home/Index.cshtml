@@ -1,14 +1,16 @@
 ﻿@using Disney.Models
+<link rel="stylesheet" href="~/css/Home.css">
+
 @{
     ViewData["Title"] = "Home Page";
 }
+<img src="https://comunidad.amena.com/t5/image/serverpage/image-id/10505iEA914FAC9C0C7C79?v=v2" class="img-fluid" alt="Responsive image">
 
-<div class="text-center">
-   <ul>
-           @foreach (Usuario U in ViewBag.Usuario)
-           {
-               <li>@U.id - @U.Nombre</li>
 
-           }
-   </ul>
+<div class="Imagen-Principal">
+   <img src="img\HouseMouse.jpg" alt="">
+   <h3 class="titulo"></h3>
+   <p>Descripcion</p>
+   <button role="button" class="boton"><i class="far fa-play-circle">Reproducir</i></button>
+   <button role="button" class="boton"><i class="fas fa-info-circle">Mas Informacion</i></button>
 </div>
