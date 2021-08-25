@@ -1,0 +1,14 @@
+﻿@using Disney.Models
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+   <ul>
+           @foreach (Usuario U in ViewBag.Usuario)
+           {
+               <li>@U.id - @U.Nombre</li>
+
+           }
+   </ul>
+</div>

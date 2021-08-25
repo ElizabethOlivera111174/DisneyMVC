@@ -1,0 +1,76 @@
+@model Personaje
+
+
+<img src="https://multidestinos.cl/wp-content/uploads/2020/04/bann-disney.png" class="img-fluid" alt="Responsive image">
+<br>
+
+<form asp-action="Guardar" asp-controller="Personajes" method="post">
+    <div class="row">
+        
+        <div class="form-group col">
+            <label >Nombre</label>
+            <input type="text" asp-for="nombre" class="form-control" placeholder="Nombre del Personaje">
+            <span asp-validation-for="nombre"></span>
+        </div>
+        <div class="form-group col">
+            <label >Edad</label>
+            <input type="number" asp-for="edad" class="form-control" placeholder="Edad del Personaje">
+             <span asp-validation-for="edad"></span>
+        </div>
+          <div class="form-group col">
+            <label >Peso</label>
+            <input type="number" asp-for="peso" class="form-control" placeholder="Peso del Personaje">
+            <span asp-validation-for="peso"></span>
+        </div>
+    </div>
+    <div class="clearfix">
+        <div class="row">
+            <div class="form-group col">
+                <label>Historia</label>
+                <input type="text" asp-for="historia" class="form-control" placeholder="Historia del Personaje">
+                <span asp-validation-for="historia"></span>
+            </div>
+        </div>
+         <div class="row">
+            <div class="form-group col">
+                <label>Imagen</label>
+                <input type="text" asp-for="imagen" class="form-control">
+                <span asp-validation-for="imagen"></span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <button type="submit" class="btn btn-primary">Guardar</button>
+    </div>
+</form>
+<br>
+
+<Table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>Id Personaje</td>
+            <th>Nombre</th>
+            <th>Edad</th>
+            <th>Peso</th>
+            <th>Historia</th>
+            <th>Imagen</th>
+            <th colspan="2"></th>
+        </tr>        
+    </thead>
+    <tbody>
+        @foreach (Personaje personaje in ViewBag.Personajes)
+        {
+            <tr>
+                <td>@personaje.idPersonaje</td>
+                <td>@personaje.nombre</td>
+                <td>@personaje.edad</td>
+                <td>@personaje.peso</td>
+                <td>@personaje.historia</td>
+                <td>@personaje.imagen</td> 
+                <td><a asp-action="Modificar" asp-controller="Personajes" asp-route-id="@personaje.idPersonaje">Editar</a></td>
+                <td><a asp-action="Eliminar" asp-controller="Personajes" asp-route-id="@personaje.idPersonaje">Eliminar</a></td>          
+            </tr>
+              
+        }
+    </tbody>
+</Table>
